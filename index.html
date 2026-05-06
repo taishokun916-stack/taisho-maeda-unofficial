@@ -1159,7 +1159,8 @@
     .social-row {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
       margin-bottom: 2.5rem;
     }
     .social-link {
@@ -1280,6 +1281,8 @@
       border: 1px solid rgba(201,168,76,0.3);
       max-width: 560px;
       width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
       padding: 3rem 2.5rem 2.5rem;
       transform: translateY(20px) scale(0.97);
       transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
@@ -1427,6 +1430,145 @@
       display: none;
     }
     .form-error-msg.visible { display: block; }
+    /* ══════════════════════════════════════
+       MOBILE OPTIMIZATION  (max-width: 480px)
+       ══════════════════════════════════════ */
+    @media (max-width: 480px) {
+
+      /* ── セクション共通 ── */
+      section { padding: 4rem 0; }
+      .container { padding: 0 1.2rem; }
+      .section-title-jp { letter-spacing: 0.15em; margin-bottom: 2rem; }
+
+      /* ── ナビ ── */
+      nav { padding: 0 1.2rem; height: 56px; }
+      .nav-logo { font-size: 0.9rem; }
+      .nav-logo span { font-size: 0.65rem; }
+
+      /* ── ヒーロー ── */
+      #hero { min-height: 100svh; }
+      .hero-text-side { padding: 5rem 1.4rem 3rem; }
+      .hero-name { font-size: clamp(2.2rem, 10vw, 3rem); }
+      .hero-name-jp { font-size: 0.9rem; letter-spacing: 0.2em; margin-bottom: 1.2rem; }
+      .hero-tagline { font-size: 0.78rem; margin-bottom: 2rem; max-width: 100%; }
+      .hero-cta { font-size: 0.62rem; padding: 0.85rem 1.5rem; }
+      .hero-eyebrow { font-size: 0.58rem; margin-bottom: 1rem; }
+
+      /* ── About ── */
+      .about-content p { font-size: 0.83rem; line-height: 2; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .stat-val { font-size: 0.78rem; }
+      .about-img-wrap { max-width: 60%; margin: 0 auto; }
+
+      /* ── Music ── */
+      .music-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .music-card-body { padding: 0.9rem; }
+
+      /* ── Goods ── */
+      .goods-inner { gap: 2rem; }
+      .goods-text p { font-size: 0.82rem; }
+      .goods-btn { font-size: 0.6rem; padding: 0.85rem 1.8rem; }
+      .goods-visual { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+      .goods-visual-item { font-size: 0.5rem; padding: 0.8rem; }
+
+      /* ── Events ── */
+      .event-item {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        gap: 0.3rem 0.8rem;
+        padding: 1.2rem 0;
+        align-items: center;
+      }
+      .event-date-block {
+        grid-row: 1 / 3;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: 52px;
+      }
+      .event-date { font-size: 1.6rem; }
+      .event-month { font-size: 0.52rem; letter-spacing: 0.15em; }
+      .event-info { grid-column: 2; }
+      .event-title { font-size: 0.82rem; line-height: 1.5; margin-bottom: 0.2rem; }
+      .event-venue { font-size: 0.68rem; }
+      .event-arrow { grid-column: 2; align-self: start; font-size: 1rem; }
+
+      /* アーカイブラベル */
+      .archive-label { font-size: 0.5rem; padding: 1rem 0 0.5rem; }
+      .archive-toggle { font-size: 0.62rem; }
+
+      /* ── Appearances / Other カード ── */
+      .content-card-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .content-card { min-height: 130px; padding: 1.4rem; }
+      .content-card-title { font-size: 0.88rem; }
+
+      /* ── Media ── */
+      .media-card { padding: 1.4rem; }
+      .media-title { font-size: 0.85rem; }
+      .media-sub { font-size: 0.7rem; }
+
+      /* ── Contact ── */
+      .contact-routing-note { font-size: 0.68rem; }
+      .form-input, .form-textarea, .form-select { font-size: 0.82rem; padding: 0.8rem; }
+      .form-submit { font-size: 0.6rem; padding: 0.9rem 2rem; }
+
+      /* ── Event Modal ── */
+      .event-modal-box {
+        padding: 2.2rem 1.4rem 1.8rem;
+        max-height: 90vh;
+        overflow-y: auto;
+        width: 95%;
+      }
+      .event-modal-date { font-size: 1.7rem; }
+      .event-modal-title { font-size: 0.88rem; }
+      .event-modal-row-label { font-size: 0.55rem; min-width: 50px; }
+      .event-modal-row-value { font-size: 0.8rem; }
+      .event-modal-map-link { font-size: 0.58rem; padding: 0.5rem 0.9rem; margin-top: 1rem; }
+      .event-modal-rule-btn { font-size: 0.58rem; padding: 0.45rem 0.8rem; }
+
+      /* ── Rule Modal ── */
+      .rule-modal-box {
+        padding: 2.2rem 1.4rem 1.8rem;
+        width: 95%;
+      }
+      .rule-item { font-size: 0.77rem; line-height: 1.8; }
+      .rule-section-title { font-size: 0.58rem; }
+
+      /* ── Info Modal ── */
+      .info-modal-box {
+        padding: 2.2rem 1.4rem 1.8rem;
+        width: 95%;
+      }
+      .info-modal-title { font-size: 1.3rem; }
+
+      /* ── Footer ── */
+      footer { padding: 2.5rem 1.2rem; }
+      .footer-name { font-size: 1.4rem; }
+      .social-row {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        justify-content: center;
+      }
+      .social-link {
+        font-size: 0.58rem;
+        padding: 0.65rem 1rem;
+        gap: 0.5rem;
+      }
+      .social-icon { width: 15px; height: 15px; }
+
+      /* ── Sticky social: スマホでは小さく右下に ── */
+      .sticky-social {
+        right: 0.8rem;
+        bottom: 1rem;
+        gap: 0.5rem;
+      }
+      .sticky-social a {
+        width: 36px;
+        height: 36px;
+      }
+      .sticky-social svg { width: 14px; height: 14px; }
+    }
+
     /* ── RULE MODAL ── */
     #rule-modal {
       position: fixed;
@@ -2784,7 +2926,7 @@
         </a>
 
         <a href="https://www.youtube.com/@m_taisho_official" target="_blank" class="media-card fade-up">
-          <div class="media-card-bg" style="background-image:url('https://yt3.googleusercontent.com/ThLV6NpVEBGD9fm86nQK_W3xxEmHqX88NLH60ZrwoXmZEsMVBIE4baHcfkUVQMFRG0-Jc0oB6zs=w2120-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj')"></div>
+          <div class="media-card-bg" style="background-image:url('https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=60')"></div>
           <p class="media-type">YouTube · 公式チャンネル</p>
           <p class="media-title">前田大翔 Official YouTube</p>
           <p class="media-sub">@m_taisho_official<br>最新動画・MV・Vlogを公開中</p>
